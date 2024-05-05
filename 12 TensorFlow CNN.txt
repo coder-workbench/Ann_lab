@@ -1,0 +1,55 @@
+Assignment 12
+
+In [1]: import tensorflow as tf
+
+# Define the input size and number of classes
+input_shape = (28, 28, 1)
+num_classes = 10
+
+# Define the model architecture
+
+model = tf.keras.Sequential([
+tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_sha
+tf. keras.layers.MaxPooling2D((2, 2)),
+tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+tf. keras.layers.MaxPooling2D((2, 2)),
+tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+tf.keras.layers.Flatten(),
+tf.keras.layers.Dense(64, activation='relu'),
+tf.keras.layers.Dense(num_classes, activation='softmax' )
+
+])
+
+# Compile the model
+
+model.compile(optimizer='adam',
+loss='categorical_crossentropy’,
+metrics=['‘accuracy' ])
+
+# Print the model summary
+model. summary()
+
+Model: “sequential”
+
+Layer (type) Output Shape Param #
+“convad (Convad) -—=~S*«Ne, 26, 26, 32) 328
+max_pooling2d (MaxPooling2D (None, 13, 13, 32) ts)
+
+)
+
+conv2d_1 (Conv2D) (None, 11, 11, 64) 18496
+max_pooling2d_1 (MaxPooling (None, 5, 5, 64) @
+
+2D)
+
+conv2d_2 (Conv2D) (None, 3, 3, 64) 36928
+flatten (Flatten) (None, 576) @
+
+dense (Dense) (None, 64) 36928
+dense_1 (Dense) (None, 10) 650
+
+Total params: 93,322
+Trainable params: 93,322
+Non-trainable params: @
+
+
